@@ -1,0 +1,43 @@
+--select * from publishers where country <> 'usa'
+--select * from publishers order by pub_name
+--select au_lname, au_fname, address, state from authors where state = 'CA'
+--select au_lname, au_fname, address, state from authors where state <> 'CA'
+--select au_fname, au_lname from authors where au_fname like '%nn%'
+--select title, type from titles where type = 'business' or type= 'psychology'
+--select * from employee
+--select minit from employee where minit = ''
+--select minit from employee where minit like '[^a-z]'
+--select minit from employee where minit <> ''
+--select minit from employee where minit like '[a-z]'
+--select * from titles
+--select title, type, price*1.2 from titles where price>0
+--select * from roysched 
+--select * from roysched where lorange<hirange and lorange>0 and royalty between 12 and 20
+--select count (job_id) from jobs
+--select distinct (country) from publishers
+--select min (min_lvl) from jobs
+--select min_lvl from jobs
+
+---select min_lvl from jobs where job_id <4
+---union all
+---select royaltyper from titleauthor where royaltyper <100
+
+select stores.stor_id, ord_num, stor_name
+from sales
+join stores
+on stores.stor_id = sales.stor_id
+where sales.stor_id <= 7066
+
+
+--select job_desc, fname, lname
+--from employee
+--join jobs
+--on employee.job_id=jobs.job_id
+
+
+select au_fname, au_lname, title
+from authors
+join titleauthor
+on titleauthor.au_id=authors.au_id
+join titles
+on titleauthor.title_id=titles.title_id
